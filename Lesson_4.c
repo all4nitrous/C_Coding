@@ -4,8 +4,10 @@
 int main ()
 {
 
-    printf("Hello\nWorld");
-    printf("My favorite number is %d", 500);
+    printf("Hello World\n");
+    printf("My favorite %s is %f\n", "number", 500.012);
+    int favNum = 90;
+    printf("My favorite %s is %d\n", "number", favNum);
 
 
 
