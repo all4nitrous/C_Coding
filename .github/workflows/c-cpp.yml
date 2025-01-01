@@ -38,7 +38,7 @@ jobs:
           for test_file in tests/test-*.c; do
             # Ensure test file exists
             if [ ! -f "$test_file" ]; then
-              echo "No test files found matching 'tests/test-*.c'."
+              echo "No test files found matching 'Tests/test-*.c'."
               exit 1
             fi
 
