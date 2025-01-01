@@ -25,8 +25,8 @@ jobs:
       - name: Build and Test All Lessons
         run: |
           # Check if the test and Unity directories exist
-          if [ ! -d "tests" ]; then
-            echo "Error: 'tests' directory not found."
+          if [ ! -d "Tests" ]; then
+            echo "Error: 'Tests' directory not found."
             exit 1
           fi
           if [ ! -f "lib/Unity/unity.c" ]; then
@@ -35,7 +35,7 @@ jobs:
           fi
           
           # Loop through all test files
-          for test_file in tests/test-*.c; do
+          for test_file in Tests/test-*.c; do
             # Ensure test file exists
             if [ ! -f "$test_file" ]; then
               echo "No test files found matching 'Tests/test-*.c'."
