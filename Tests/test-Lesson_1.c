@@ -1,3 +1,4 @@
+#define TESTING
 #include "../lib/Unity/unity.h"
 #include "../lib/Unity/unity.c"
 #include "../lib/Unity/unity_internals.h"
