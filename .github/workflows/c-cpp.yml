@@ -29,8 +29,8 @@ jobs:
             echo "Error: 'Tests' directory not found."
             exit 1
           fi
-          if [ ! -f "lib/Unity/unity.c" ]; then
-            echo "Error: 'lib/Unity/unity.c' not found."
+          if [ ! -f "lib/Unity/unity.h" ]; then
+            echo "Error: 'lib/Unity/unity.h' not found."
             exit 1
           fi
           
@@ -45,7 +45,7 @@ jobs:
             # Compile the test file
             executable=${test_file%.c}
             echo "Compiling $test_file..."
-            gcc -o $executable $test_file lib/Unity/unity.c || exit 1
+            gcc -o $executable $test_file lib/Unity/unity.h || exit 1
 
             # Run the test executable
             echo "Running $executable..."
