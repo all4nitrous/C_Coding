@@ -1,4 +1,5 @@
-#include "../lib/Unity/unity.h" // Update the path to unity.h as needed
+#include "../lib/Unity/unity.h"
+#include "../Lesson_1.c" // Update the path to unity.h as needed
 #include <string.h>
 #include <stdio.h>
 
