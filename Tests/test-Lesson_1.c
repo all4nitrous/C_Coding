@@ -1,34 +1,35 @@
 #include "../lib/Unity/unity.h"
 #define TESTING
-#include "../Lesson_1.c" // Include the main file to access the function
+#include "../Lesson_1.c"
 #include <string.h>
 #include <stdio.h>
 
-
-// Buffer to capture output
-// Define the required Unity functions
 void setUp(void) {
-    // This function is run before each test
+    // Runs before each test
 }
 
 void tearDown(void) {
-    // This function is run after each test
+    // Runs after each test
 }
 
-// Test function
 void test_print_hello_world_ShouldPrintHelloWorld(void) {
-    // Buffer to capture output
     char buffer[128] = {0};
 
-    // Redirect stdout to the buffer
-    freopen("/dev/null", "a", stdout);
-    setvbuf(stdout, buffer, _IOFBF, sizeof(buffer));
+    // Redirect stdout to a file
+    freopen("output.txt", "w", stdout);
 
     // Call the function to test
     print_hello_world();
 
-    // Restore stdout and check the output
-    freopen("/dev/tty", "a", stdout);
+    // Flush and close stdout
+    fclose(stdout);
+
+    // Read the file content
+    FILE *file = fopen("output.txt", "r");
+    fgets(buffer, sizeof(buffer), file);
+    fclose(file);
+
+    // Check the output
     TEST_ASSERT_EQUAL_STRING("Hello World!\n", buffer);
 }
 
