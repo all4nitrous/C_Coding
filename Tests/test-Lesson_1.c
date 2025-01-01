@@ -1,8 +1,9 @@
-#include "../lib/Unity/unity.h"
-#define TESTING
-#include "../Lesson_1.c"
+#include "../lib/Unity/unity.h" // Update the path to unity.h as needed
 #include <string.h>
 #include <stdio.h>
+
+// Declaration of the function to be tested
+void print_hello_world(void);
 
 void setUp(void) {
     // Runs before each test
@@ -38,3 +39,4 @@ int main(void) {
     RUN_TEST(test_print_hello_world_ShouldPrintHelloWorld);
     return UNITY_END();
 }
+
