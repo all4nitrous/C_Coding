@@ -4,8 +4,11 @@ void print_hello_world(void) {
     printf("Hello World!\n");
 }
 
-int Main(void) {
+#ifndef TESTING
+int main(void) {  // Corrected to lowercase "main"
     print_hello_world();
     return 0;
 }
+#endif
+
 
