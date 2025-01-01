@@ -32,3 +32,19 @@ jobs:
             ./$executable
           done
 
+# Step 4: Build and Test All Test Files
+      - name: Build and Test All Lessons
+        run: |
+          # Loop through all test files in the tests directory
+          for test_file in tests/test-*.c; do
+            # Extract the base name for the test executable
+            executable=${test_file%.c}
+            echo "Compiling $test_file..."
+            
+            # Compile the test file with Unity
+            gcc -o $executable $test_file lib/Unity/unity.c
+            
+            # Run the compiled test executable
+            echo "Running $executable..."
+            ./$executable
+          done

@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unity.c>
-#include <unity.h>
 
-
-int main()
-{
+void print_hello_world() {
     printf("Hello World!\n");
+}
+
+#ifndef TESTING
+int main() {
+    print_hello_world();
     return 0;
 }
+#endif
