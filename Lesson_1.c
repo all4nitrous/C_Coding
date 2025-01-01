@@ -5,7 +5,7 @@ void print_hello_world(void) {
 }
 
 #ifndef TESTING
-int main(void) {
+int Main(void) {
     print_hello_world();
     return 0;
 }
