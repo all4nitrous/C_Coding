@@ -1,4 +1,4 @@
-name: Build and Test All Lessons
+name: Build and Run Lessons
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build-and-run:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,34 +21,30 @@ jobs:
       - name: Set up C compiler
         run: sudo apt-get update && sudo apt-get install -y build-essential
 
-      # Step 3: Build and Test All Test Files
-      - name: Build and Test All Lessons
+      # Step 3: Detect and Process All Lesson Files
+      - name: Build and Run Lessons
         run: |
-          # Check if the test and Unity directories exist
-          if [ ! -d "Tests" ]; then
-            echo "Error: 'Tests' directory not found."
-            exit 1
-          fi
-          if [ ! -f "lib/Unity/unity.h" ]; then
-            echo "Error: 'lib/Unity/unity.h' not found."
-            exit 1
-          fi
-          
-          # Loop through all test files
-          for test_file in Tests/test-*.c; do
-            # Ensure test file exists
-            if [ ! -f "$test_file" ]; then
-              echo "No test files found matching 'Tests/test-*.c'."
-              exit 1
-            fi
-
-            # Compile the test file
-            executable=${test_file%.c}
-            echo "Compiling $test_file..."
-            gcc -o $executable $test_file lib/Unity/unity.h || exit 1
-
-            # Run the test executable
+          for file in Lesson_*.c; do
+            executable=${file%.c}
+            echo "Building $file..."
+            gcc -o $executable $file
             echo "Running $executable..."
-            ./$executable || exit 1
+            ./$executable
           done
 
+# Step 4: Build and Test All Test Files
+      - name: Build and Test All Lessons
+        run: |
+          # Loop through all test files in the tests directory
+          for test_file in Tests/test-*.c; do
+            # Extract the base name for the test executable
+            executable=${test_file%.c}
+            echo "Compiling $test_file..."
+            
+            # Compile the test file with Unity
+            gcc -o $executable $test_file lib/Unity/unity.c
+            
+            # Run the compiled test executable
+            echo "Running $executable..."
+            ./$executable
+          done
