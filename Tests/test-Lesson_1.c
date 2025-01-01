@@ -1,4 +1,5 @@
 #include "../lib/Unity/unity.h"
+#include "../lib/Unity/unity.c"
 #define TESTING
 #include "../Lesson_1.c" // Include the main file to access the function
 #include <string.h>
