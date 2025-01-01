@@ -42,7 +42,8 @@ jobs:
             echo "Compiling $test_file..."
             
             # Compile the test file with Unity
-            gcc -o $executable $test_file lib/Unity/unity.c
+            gcc -o $executable $test_file ./lib/Unity/unity.c
+
             
             # Run the compiled test executable
             echo "Running $executable..."
