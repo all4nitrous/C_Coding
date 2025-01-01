@@ -25,11 +25,11 @@ jobs:
       - name: Build and Test All Lessons
         run: |
           # Check if the Unity directory exists
-          if [ ! -f "../lib/Unity/unity.c" ]; then
-            echo "Error: ../lib/Unity/unity.c not found."
+          if [ ! -f "lib/Unity/unity.c" ]; then
+            echo "Error: lib/Unity/unity.c not found."
             exit 1
           fi
-          if [ ! -d "tests" ]; then
+          if [ ! -d "Tests" ]; then
             echo "Error: tests directory not found."
             exit 1
           fi
@@ -40,7 +40,7 @@ jobs:
             echo "Compiling $test_file..."
             
             # Compile the test file with Unity
-            gcc -o $executable $test_file ./../lib/Unity/unity.h -I./lib/Unity || exit 1
+            gcc -o $executable $test_file ./lib/Unity/unity.h -I./lib/Unity || exit 1
             
             # Run the compiled test executable
             echo "Running $executable..."
