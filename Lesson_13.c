@@ -18,8 +18,17 @@ int max(int num1, int num2, int num3) { //max will contain three numbers
 
 int main() {
 
-    printf("%d", max(4, 10, 15)); //#1 and 
+    printf("%d\n", max(35, 10, 15)); //Will print the first number
+    
+    if(3 < 2 || 2 > 5) {
+        printf("True\n");
+    } else {
+        printf("false\n");
+    }
 
+if(!(3 < 2)) { //(! ) make opposite statements
+        printf("True\n"); 
+    }
 
     return 0;
 }
