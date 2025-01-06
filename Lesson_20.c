@@ -10,7 +10,15 @@ int main() {
         {5, 6}
     };
 
+    //printf("%d\n", nums[2] [1]);
 
+    int i, j;
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 2; j++) {
+            printf("%d\n", nums[i] [j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
