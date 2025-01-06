@@ -1,4 +1,4 @@
-/* Pointers */
+/* Pointers & dereferencing them */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,5 +10,5 @@ double * pGpa = &gpa;
 char * aGrade = &grade;
 
 int main() {
-    printf("age's memory address: %p\n", pAge);
+    printf("age: %d\n", *&*&age);
 }
